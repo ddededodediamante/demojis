@@ -7,8 +7,11 @@ import { fileURLToPath } from "url";
 // ESM
 import * as esm from "../dist/index.js";
 
-// CJS 
+// CJS
 const cjs = await import("../dist/index.cjs");
+
+// Browser
+import * as browser from "../dist/browser.js";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -88,26 +91,21 @@ test("getRandom(category) works", () => {
   }
 });
 
-test("getImage returns valid file URLs", () => {
-  const all = esm.getAll().slice(0, 10); 
+test("getImage returns valid file URLs (ESM)", () => {
+  const all = esm.getAll().slice(0, 10);
 
   for (const name of all) {
     const url = esm.getImage(name, 256);
-    assert(url.startsWith("file://"));
+    assert(url.startsWith("file://"), `Expected file:// URL, got: ${url}`);
   }
 });
 
 test("image files exist for all sizes", () => {
-  const all = esm.getAll().slice(0, 20); 
+  const all = esm.getAll().slice(0, 20);
 
   for (const name of all) {
     for (const size of SIZES) {
-      const filePath = path.join(
-        IMAGE_DIR,
-        String(size),
-        `${name}.png`
-      );
-
+      const filePath = path.join(IMAGE_DIR, String(size), `${name}.png`);
       assert.ok(fs.existsSync(filePath), `Missing: ${filePath}`);
     }
   }
@@ -121,4 +119,47 @@ test("invalid category returns empty array", () => {
 test("getRandom invalid category returns null", () => {
   const result = esm.getRandom("nonexistent");
   assert.strictEqual(result, null);
+});
+
+test("exports exist (browser)", () => {
+  assert.ok(browser.getAll);
+  assert.ok(browser.getCategories);
+  assert.ok(browser.getByCategory);
+  assert.ok(browser.getRandom);
+  assert.ok(browser.getImage);
+  assert.ok(browser.setBaseUrl);
+});
+
+test("browser data matches ESM data", () => {
+  assert.deepStrictEqual(browser.getAll(), esm.getAll());
+  assert.deepStrictEqual(browser.getCategories(), esm.getCategories());
+});
+
+test("getImage returns CDN URL by default (browser)", () => {
+  const url = browser.getImage("smile", 256);
+  assert(url.startsWith("https://"), `Expected https:// URL, got: ${url}`);
+  assert(url.endsWith("/256/smile.png"), `Unexpected URL format: ${url}`);
+});
+
+test("getImage respects size (browser)", () => {
+  for (const size of SIZES) {
+    const url = browser.getImage("smile", size);
+    assert(url.includes(`/${size}/`), `Size ${size} not in URL: ${url}`);
+  }
+});
+
+test("setBaseUrl changes getImage output (browser)", () => {
+  browser.setBaseUrl("https://example.com/emojis");
+  const url = browser.getImage("smile", 128);
+  assert.strictEqual(url, "https://example.com/emojis/128/smile.png");
+
+  browser.setBaseUrl("https://example.com/emojis/");
+  const url2 = browser.getImage("smile", 128);
+  assert.strictEqual(url2, "https://example.com/emojis/128/smile.png");
+});
+
+test("setBaseUrl works with local path (browser)", () => {
+  browser.setBaseUrl("/public/demojis");
+  const url = browser.getImage("smile", 64);
+  assert.strictEqual(url, "/public/demojis/64/smile.png");
 });

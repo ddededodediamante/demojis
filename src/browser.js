@@ -1,12 +1,9 @@
-import path from "path";
-import { pathToFileURL, fileURLToPath } from "url";
 import data from "./data.json";
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 export const all = data.all;
 export const categories = data.categories;
+
+let _baseUrl = `https://cdn.jsdelivr.net/npm/demojis@${__VERSION__}/dist/images`;
 
 export function getAll() {
   return all;
@@ -26,18 +23,12 @@ export function getRandom(category) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
-export function getImage(name, size = 256) {
-  const fileName = `${name}.png`;
-
-  return pathToFileURL(path.resolve(__dirname, "images", String(size), fileName)).href;
+export function setBaseUrl(url) {
+  _baseUrl = url.replace(/\/$/, "");
 }
 
-export default {
-  all,
-  categories,
-  getAll,
-  getCategories,
-  getByCategory,
-  getRandom,
-  getImage,
-};
+export function getImage(name, size = 256) {
+  return `${_baseUrl}/${size}/${name}.png`;
+}
+
+export default { all, categories, getAll, getCategories, getByCategory, getRandom, getImage, setBaseUrl };

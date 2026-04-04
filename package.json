@@ -1,6 +1,6 @@
 {
   "name": "demojis",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A colorful bitmap emoji pack made to pop.",
   "keywords": [
     "emoji",
@@ -13,6 +13,7 @@
   "main": "./dist/index.cjs",
   "exports": {
     ".": {
+      "browser": "./dist/browser.js",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
@@ -22,7 +23,7 @@
   ],
   "scripts": {
     "build:data": "node scripts/build.js",
-    "build:code": "tsup src/index.js --format esm,cjs",
+    "build:code": "tsup",
     "build": "npm run build:data && npm run build:code",
     "test": "node --test",
     "prepublishOnly": "npm run build"
