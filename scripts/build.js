@@ -61,6 +61,7 @@ async function main() {
           })
           .png({
             compressionLevel: 9,
+            effort: 10,
             adaptiveFiltering: true,
           })
           .toFile(outPath);
