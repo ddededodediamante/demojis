@@ -27,8 +27,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 - New emojis: `catsmile`, `dogsmile`, `distortedface`, `frownbig`, `grinningsweat`, `laughing`, `mouthless`, `readingnote`, `zippermouth`.
-- Created `CHANGELOD.md` file.
 - Better emoji image compression by setting effort to 10.
 
 ### Changed
 - Slightly redesigned emojis: `bagsundereyes`, `zany`.
+
+## [1.1.4] - 2026-10-09
+
+### Added
+- New emojis: `catangry`, `dogangry`, `disguised`, `partying`, `applegreen`, `applered`, `readingnote`, `zippermouth`.
+- Created `UNICODE.md` file for Unicode equivalents of Demojis.
+- Created `scripts/grid.js` file to easily create a grid using all of the Demojis available.
