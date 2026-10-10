@@ -8,6 +8,10 @@
     "cdn"
   ],
   "license": "CC0-1.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ddededodediamante/demojis.git"
+  },
   "author": "ddededodediamante",
   "type": "module",
   "main": "./dist/index.cjs",
