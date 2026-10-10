@@ -16,7 +16,7 @@ const sizes = [32, 64, 128, 256];
 
 const result = {
   all: [],
-  categories: {},
+  categories: {}
 };
 
 const sort = (a, b) => a.localeCompare(b);
@@ -30,16 +30,21 @@ async function main() {
   await ensureEmptyDir(distDir);
 
   const categoryDirs = (await fs.readdir(imagesDir, { withFileTypes: true }))
-    .filter(dirent => dirent.isDirectory())
-    .map(dirent => dirent.name)
+    .filter((dirent) => dirent.isDirectory())
+    .map((dirent) => dirent.name)
     .sort(sort);
 
+  console.info(
+    `Found ${categoryDirs.length} categories: ${categoryDirs.join(", ")}`
+  );
+
+  let count = 0;
   for (const category of categoryDirs) {
     const categoryPath = path.join(imagesDir, category);
 
     const files = (await fs.readdir(categoryPath, { withFileTypes: true }))
-      .filter(f => f.isFile())
-      .map(f => path.parse(f.name).name)
+      .filter((f) => f.isFile())
+      .map((f) => path.parse(f.name).name)
       .sort(sort);
 
     result.categories[category] = files;
@@ -57,33 +62,35 @@ async function main() {
         await sharp(inputPath)
           .resize(size, size, {
             fit: "inside",
-            withoutEnlargement: true,
+            withoutEnlargement: true
           })
           .png({
             compressionLevel: 9,
             effort: 10,
-            adaptiveFiltering: true,
+            adaptiveFiltering: true
           })
           .toFile(outPath);
+      }
+
+      count++;
+      if (count % 20 == 0) {
+        console.info(`Processed ${count}/${result.all.length} images...`);
       }
     }
   }
 
   result.all.sort(sort);
 
-  console.info(`Total emojis: ${result.all.length}`);
   console.info(
-    `Categories: ${Object.keys(result.categories).join(", ")} (${Object.keys(result.categories).length})`,
+    `Build completed successfully. Total emojis: ${result.all.length}`
   );
 
   const stringified = JSON.stringify(result);
   await fs.writeFile(outputPath, stringified, "utf8");
   await fs.writeFile(srcDataPath, stringified, "utf8");
-
-  console.info("Build completed successfully.");
 }
 
-main().catch(err => {
+main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
