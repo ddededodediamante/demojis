@@ -22,3 +22,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Changed
 - The emoji `smilebig` was renamed to `grin`.
 - Slightly redesigned emojis: `smile`, `nopedestrians`.
+
+## [1.1.3] - 2026-06-24
+
+### Added
+- New emojis: `catsmile`, `dogsmile`, `distortedface`, `frownbig`, `grinningsweat`, `laughing`, `mouthless`, `readingnote`, `zippermouth`.
+- Created `CHANGELOD.md` file.
+- Better emoji image compression by setting effort to 10.
+
+### Changed
+- Slightly redesigned emojis: `bagsundereyes`, `zany`.
