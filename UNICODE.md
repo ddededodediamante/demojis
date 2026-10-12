@@ -15,26 +15,26 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | 😅      | [grinningsweat](assets/faces/grinningsweat.png)                     |
 | 😂      | [joy](assets/faces/joy.png)                                         |
 | 🤣      | No equivalent yet                                                   |
-| 🥲      | No equivalent yet                                                   |
-| ☺️      | No equivalent yet                                                   |
+| 🥲      | [holdingbacktears](assets/faces/holdingbacktears.png)               |
+| ☺️      | [blushrelieved](assets/faces/blushrelieved.png)                     |
 | 😊      | [blush](assets/faces/blush.png)                                     |
 | 😇      | [innocent](assets/faces/innocent.png)                               |
 | 🙂      | [smile](assets/faces/smile.png)                                     |
 | 🙃      | [smileupsidedown](assets/faces/smileupsidedown.png)                 |
-| 😉      | No equivalent yet                                                   |
+| 😉      | [wink](assets/faces/wink.png)                                       |
 | 😌      | No equivalent yet                                                   |
 | 😍      | [hearteyes](assets/faces/hearteyes.png)                             |
 | 🥰      | [heartgrinning](assets/faces/heartgrinning.png)                     |
 | 😘      | [kissingheart](assets/faces/kissingheart.png)                       |
 | 😗      | [kissing](assets/faces/kissing.png)                                 |
-| 😙      | No equivalent yet                                                   |
+| 😙      | [kissingclosedeyes](assets/faces/kissingclosedeyes.png)             |
 | 😚      | No equivalent yet                                                   |
 | 😋      | [yummy](assets/faces/yummy.png)                                     |
 | 😛      | [tongueface](assets/faces/tongueface.png)                           |
 | 😝      | [tonguefaceclosedeyes](assets/faces/tonguefaceclosedeyes.png)       |
 | 😜      | No equivalent yet                                                   |
 | 🤪      | [zany](assets/faces/zany.png)                                       |
-| 🤨      | No equivalent yet                                                   |
+| 🤨      | [raisedeyebrow](assets/faces/raisedeyebrow.png)                     |
 | 🧐      | [monocle](assets/faces/monocle.png)                                 |
 | 🤓      | [glasses](assets/faces/glasses.png)                                 |
 | 😎      | [sunglasses](assets/faces/sunglasses.png)                           |

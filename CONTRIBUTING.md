@@ -42,6 +42,7 @@ For emoji creation, here are some things to keep in mind:
 - Mouths must be colored with their insides being `#800002` and the borders `#000000`.
 - Eyes should be `#000000` colored, unless the eye requires to be bigger, that way it should be `#FFFFFF`.
 - Tears, sweat or drool should be `#85B7FF` colored, with their borders set to `#569CFE`
+- Blush should be `FF72BD` colored.
 
 ### Naming Guidelines
 
