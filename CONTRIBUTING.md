@@ -46,7 +46,7 @@ For emoji creation, here are some things to keep in mind:
 
 ### Naming Guidelines
 
-- Emoji names shouldn't include spaces or special character.
+- Lowercase emoji names with no spaces, separators or special characters.
 - If an emoji is a variation of another, the name should start with the name of the base emoji. For example: `grinning` -> `grinningsweat`.
 
 ## Submitting Your Changes
