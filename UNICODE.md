@@ -54,8 +54,10 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | 😔      | [pensive](assets/faces/pensive.png)                                 |
 | 😕      | [confused](assets/faces/confused.png)                               |
 | 😟      | [worried](assets/faces/worried.png)                                 |
+| 🙁      | [frown](assets/faces/frown.png)                                     |
 | ☹️      | [frownbig](assets/faces/frownbig.png)                               |
 | 😰      | [nervous](assets/faces/nervous.png)                                 |
+| 😨      | [fear](assets/faces/fear.png)                                       |
 | 😮      | [shocked](assets/faces/shocked.png)                                 |
 | 🥺      | [pleading](assets/faces/pleading.png)                               |
 | 😢      | [cry](assets/faces/cry.png)                                         |
@@ -102,36 +104,39 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 
 ## Symbols
 
-| Unicode | Demoji                                                      |
-| ------- | ----------------------------------------------------------- |
-| 🔰      | [beginner](assets/symbols/beginner.png)                     |
-| 💬      | [bubblespeech](assets/symbols/bubblespeech.png)             |
-| 💭      | [bubblethought](assets/symbols/bubblethought.png)           |
-| 🧯      | [fireextinguisher](assets/symbols/fireextinguisher.png)     |
-| 🏳️      | [flagwhite](assets/symbols/flagwhite.png)                   |
-| 🎌      | [flagscrossed](assets/symbols/flagscrossed.png)             |
-| 💙      | [heartblue](assets/symbols/heartblue.png)                   |
-| 💔      | [heartbroken](assets/symbols/heartbroken.png)               |
-| 💚      | [heartgreen](assets/symbols/heartgreen.png)                 |
-| 🧡      | [heartorange](assets/symbols/heartorange.png)               |
-| ❤️      | [heartred](assets/symbols/heartred.png)                     |
-| 💛      | [heartyellow](assets/symbols/heartyellow.png)               |
-| 💻      | [laptop](assets/symbols/laptop.png)                         |
-| ❗      | [markbang](assets/symbols/markbang.png)                     |
-| ‼️      | [markbangdouble](assets/symbols/markbangdouble.png)         |
-| ❓      | [markquestion](assets/symbols/markquestion.png)             |
-| ⁉️      | [markquestionbang](assets/symbols/markquestionbang.png)     |
-| ⁇       | [markquestiondouble](assets/symbols/markquestiondouble.png) |
-| ⛔      | [noentry](assets/symbols/noentry.png)                       |
-| 🚯      | [nolittering](assets/symbols/nolittering.png)               |
-| 🚷      | [nopedestrians](assets/symbols/nopedestrians.png)           |
-| 📵      | [nophones](assets/symbols/nophones.png)                     |
-| 🚱      | [nopotablewater](assets/symbols/nopotablewater.png)         |
-| 🧾      | [receipt](assets/symbols/receipt.png)                       |
-| ⭐      | [star](assets/symbols/star.png)                             |
-| 🌠      | [starshooting](assets/symbols/starshooting.png)             |
-| 🎭      | [theatermasks](assets/symbols/theatermasks.png)             |
-| ❌      | [x](assets/symbols/x.png)                                   |
+| Unicode | Demoji                                                          |
+| ------- | --------------------------------------------------------------- |
+| 🔰      | [beginner](assets/symbols/beginner.png)                         |
+| ✔️      | [checkmark](assets/symbols/checkmark.png)                       |
+| 💬      | [bubblespeech](assets/symbols/bubblespeech.png)                 |
+| 💭      | [bubblethought](assets/symbols/bubblethought.png)               |
+| 🧯      | [fireextinguisher](assets/symbols/fireextinguisher.png)         |
+| 🏳️      | [flagwhite](assets/symbols/flagwhite.png)                       |
+| 🎌      | [flagscrossed](assets/symbols/flagscrossed.png)                 |
+| 💙      | [heartblue](assets/symbols/heartblue.png)                       |
+| 💔      | [heartbroken](assets/symbols/heartbroken.png)                   |
+| 💚      | [heartgreen](assets/symbols/heartgreen.png)                     |
+| 🧡      | [heartorange](assets/symbols/heartorange.png)                   |
+| ❤️      | [heartred](assets/symbols/heartred.png)                         |
+| 💛      | [heartyellow](assets/symbols/heartyellow.png)                   |
+| 💻      | [laptop](assets/symbols/laptop.png)                             |
+| ❗      | [markbang](assets/symbols/markbang.png)                         |
+| ‼️      | [markbangdouble](assets/symbols/markbangdouble.png)             |
+| ❓      | [markquestion](assets/symbols/markquestion.png)                 |
+| ⁉️      | [markquestionbang](assets/symbols/markquestionbang.png)         |
+| ⁇       | [markquestiondouble](assets/symbols/markquestiondouble.png)     |
+| ⛔      | [noentry](assets/symbols/noentry.png)                           |
+| 🚯      | [nolittering](assets/symbols/nolittering.png)                   |
+| 🚷      | [nopedestrians](assets/symbols/nopedestrians.png)               |
+| 📵      | [nophones](assets/symbols/nophones.png)                         |
+| 🚱      | [nopotablewater](assets/symbols/nopotablewater.png)             |
+| 🧾      | [receipt](assets/symbols/receipt.png)                           |
+| ⭐      | [star](assets/symbols/star.png)                                 |
+| 🌠      | [starshooting](assets/symbols/starshooting.png)                 |
+| 🌛      | [moonfacefirstquarter](assets/symbols/moonfacefirstquarter.png) |
+| 🌜      | [moonfacelastquarter](assets/symbols/moonfacelastquarter.png)   |
+| 🎭      | [theatermasks](assets/symbols/theatermasks.png)                 |
+| ❌      | [x](assets/symbols/x.png)                                       |
 
 ## Animals
 
@@ -143,6 +148,7 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | 😸      | [catsmile](assets/animals/catsmile.png) |
 | 🐶      | [dog](assets/animals/dog.png)           |
 | 🦅      | [eagle](assets/animals/eagle.png)       |
+| 🐟      | [fishblue](assets/animals/fishblue.png) |
 | 🐢      | [turtle](assets/animals/turtle.png)     |
 
 ## Hands
@@ -183,3 +189,16 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | ------- | ---------------------------------------- |
 | 🍏      | [applegreen](assets/food/applegreen.png) |
 | 🍎      | [applered](assets/food/applered.png)     |
+
+## Demojis Only
+
+These emojis have no Unicode equivalent. They're unique to Demojis.
+
+| Demoji                                    |
+| ----------------------------------------- |
+| [fishred](assets/animals/fishred.png)     |
+| [dogsmile](assets/animals/dogsmile.png)   |
+| [dogangry](assets/animals/dogangry.png)   |
+| [dogsad](assets/animals/dogsad.png)       |
+| [pigeon](assets/animals/pigeon.png)       |
+| [trapezoid](assets/symbols/trapezoid.png) |
