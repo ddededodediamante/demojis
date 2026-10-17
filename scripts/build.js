@@ -73,7 +73,7 @@ async function main() {
       }
 
       count++;
-      if (count % 20 == 0) {
+      if (count % 30 == 0) {
         console.info(`Processed ${count}/${result.all.length} images...`);
       }
     }

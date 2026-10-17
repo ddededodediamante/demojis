@@ -79,10 +79,10 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | 🤠      | [cowboy](assets/faces/cowboy.png)                                   |
 | 😈      | [impsmile](assets/faces/impsmile.png)                               |
 | 👿      | [impfrown](assets/faces/impfrown.png)                               |
-| 😤      | No equivalent yet                                                   |
-| 😳      | No equivalent yet                                                   |
-| 🥵      | No equivalent yet                                                   |
-| 🥶      | No equivalent yet                                                   |
+| 😤      | [steamface](assets/faces/steamface.png)                             |
+| 😳      | [flushed](assets/faces/flushed.png)                                 |
+| 🥵      | [hotface](assets/faces/hotface.png)                                 |
+| 🥶      | [coldface](assets/faces/coldface.png)                               |
 | 😱      | No equivalent yet                                                   |
 | 🤯      | No equivalent yet                                                   |
 | 🤗      | No equivalent yet                                                   |

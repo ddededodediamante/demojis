@@ -64,6 +64,8 @@ async function main() {
   if (files.length === 0)
     throw new Error(`No PNG assets found in ${assetsDir}`);
 
+  console.info(`Creating grid image from ${files.length} emoji images`)
+
   const grid = pickGrid(files.length);
   const cell = Math.min(
     MAX_CELL,
@@ -91,6 +93,10 @@ async function main() {
       left: (i % grid.cols) * cell + 1,
       top: Math.floor(i / grid.cols) * cell + 1
     });
+
+    if (i !== 0 && i % 30 == 0) {
+      console.info(`Processed ${i + 1}/${files.length} images...`);
+    }
   }
 
   await fs.mkdir(distDir, { recursive: true });

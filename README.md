@@ -1,5 +1,7 @@
 <img width="500" alt="Demojis: A colorful bitmap emoji pack made to pop. Simple to use." src="demojis-thumbnail.png" />
 
+Demojis is a bitmap emoji pack with many emojis across various categories. Each emoji comes in four sizes, and you can load them from a CDN or install the package and serve them yourself.
+
 ## Installation
 
 ```bash
@@ -8,40 +10,122 @@ npm install demojis
 
 ## Usage
 
+Showing an emoji takes four steps.
+
+1. **Install the package:** You can skip this and use the CDN instead (see [Plain HTML](#plain-html)).
+
+   ```bash
+   npm install demojis
+   ```
+
+2. **Find the name you need:** Names are compound words like `smile`, `cat`, `star`, and `heartred`. You can list every name or browse by category:
+
+   ```javascript
+   import demojis from "demojis";
+
+   demojis.all; // every name (sorted alphabetically)
+   demojis.getCategories(); // ["animals", "faces", "hands", "people", "symbols"]
+   demojis.getByCategory("faces"); // ["angry", "baffled", ..., "smile", ...]
+   ```
+
+3. **Get the image URL:** Pass a name, and you can optionally pass a size: `32`, `64`, `128`, or `256`.
+
+   ```javascript
+   demojis.getImage("smile", 64);
+   ```
+
+4. **Display tjhe emoji:** Use the URL as the `src` of an `<img>`, and set `alt` to the emoji name.
+
+   ```javascript
+   const img = document.createElement("img");
+   img.src = demojis.getImage("smile", 64);
+   img.alt = "smile";
+   img.width = img.height = 32;
+   document.body.append(img);
+   ```
+
+### Plain HTML
+
+If you don't want to install anything, point an `<img>` at the CDN. You might want to pin the version so your page doesn't change when a new release comes out.
+
+```html
+<img
+  src="https://cdn.jsdelivr.net/npm/demojis@1.1.2/dist/images/64/smile.png"
+  alt="smile"
+  width="32"
+  height="32"
+/>
+```
+
+The URL follows this pattern: `https://cdn.jsdelivr.net/npm/demojis@<version>/dist/images/<size>/<name>.png`.
+
+### React / Preact
+
+Wrap the image in a small component so you only pass a name:
+
+```jsx
+import demojis from "demojis";
+
+export function Emoji({ name, px = 24, ...rest }) {
+  return (
+    <img
+      src={demojis.getImage(name, 64)}
+      alt={name}
+      width={px}
+      height={px}
+      style={{ imageRendering: "pixelated" }}
+      {...rest}
+    />
+  );
+}
+
+// <Emoji name="cat" px={32} />
+```
+
+### Scaling
+
+Smooth scaling makes Demojis look blurry. Turn smoothing off with `image-rendering: pixelated` and choose a source size at least as large as the size you display.
+
+```css
+.emoji {
+  width: 1.25em;
+  height: 1.25em;
+  vertical-align: -0.25em;
+  image-rendering: pixelated;
+}
+```
+
+### Self-hosting
+
+To serve the images from your own site, copy them into your public folder:
+
+```bash
+cp -r node_modules/demojis/dist/images public/demojis
+```
+
+Then tell `getImage` where they live. In Vite, the `public` folder is served from the site root:
+
 ```javascript
 import demojis from "demojis";
 
-// Get all emoji names
-demojis.all; // ["smile", "frown", ...]
+demojis.setBaseUrl("/demojis");
 
-// Get all category names
-demojis.getCategories(); // ["faces", "objects", ...]
-
-// Get all emojis in a category
-demojis.getByCategory("faces"); // ["smile", "wink", ...]
-
-// Get a random emoji (optionally from a category)
-demojis.getRandom();
-demojis.getRandom("faces");
-
-// Get a URL for an emoji image
-demojis.getImage("smile"); // 256px (default)
-demojis.getImage("smile", 64); // 64px
+demojis.getImage("smile", 64); // "/demojis/64/smile.png"
 ```
 
-## Image Sizes
+## Image sizes
 
-Four sizes are available: `32`, `64`, `128`, `256` (pixels). All images are PNGs.
+Four sizes are available: `32`, `64`, `128`, and `256` pixels. All images are PNG files.
 
 ## API
 
 ### `demojis.all`
 
-Array of all emoji names, sorted alphabetically.
+An array of every emoji name sorted alphabetically.
 
 ### `demojis.categories`
 
-Object mapping category names to arrays of emoji names.
+An object that maps each category name to its list of emoji names.
 
 ```javascript
 {
@@ -57,40 +141,26 @@ Returns `demojis.all`.
 
 ### `getCategories()`
 
-Returns an array of category name strings.
+Returns the category names as an array of strings.
 
 ### `getByCategory(name)`
 
-Returns the array of emoji names in that category, or `[]` if the category doesn't exist.
+Returns the emoji names in a category. If the category doesn't exist, it returns `[]`.
 
 ### `getRandom(category?)`
 
-Returns a random emoji name. Pass a category name to limit to that category. Returns `null` if the category is empty or doesn't exist.
+Returns a random emoji name. Pass a category name to pick only from that category. Returns `null` if the category is empty or doesn't exist.
 
 ### `getImage(name, size?)`
 
-Returns a URL string for the emoji image. Defaults to `256`px.
+Returns the URL of an emoji image. The default size is `256` pixels.
 
-- **Node (ESM/CJS):** returns a `file://` URL pointing to the local image inside `node_modules`.
-- **Browser (Vite, webpack, etc.):** returns a CDN URL from jsDelivr.
-
-## Browser / Vite
-
-Bundlers like Vite automatically use the browser entry point via the `browser` export condition, so you don't need to configure anything. Images are served from the jsDelivr CDN by default.
-
-If you prefer to self-host the images, copy the `dist/images` folder into your project's public directory and call `setBaseUrl`:
-
-```javascript
-import demojis from "demojis";
-
-demojis.setBaseUrl("/public/demojis");
-
-demojis.getImage("smile", 64); // "/public/demojis/64/smile.png"
-```
+- **Node (ESM/CJS):** it returns a `file://` URL that points to the image inside `node_modules`. Browsers can't load these, so for server-rendered pages, use the CDN URL or self-host the images.
+- **The browser (Vite, webpack, etc.):** it returns a jsDelivr CDN URL.
 
 ### `setBaseUrl(url)` _(browser only)_
 
-Overrides the base URL used by `getImage`. Trailing slashes are stripped automatically.
+Changes the base URL that `getImage` uses. Trailing slashes are removed automatically.
 
 ## Module formats
 
@@ -100,6 +170,6 @@ Overrides the base URL used by `getImage`. Trailing slashes are stripped automat
 | `import`  | `dist/index.js`   | Node ESM (`import`)               |
 | `require` | `dist/index.cjs`  | Node CJS (`require`)              |
 
-## Unicode Equivalents
+## Unicode equivalents
 
-To see a list of Unicode equivalents for Demojis, check out [UNICODE.md](UNICODE.md).
+If you need the Unicode equivalent of each Demojis emoji, see [UNICODE.md](UNICODE.md).
