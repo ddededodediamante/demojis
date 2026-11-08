@@ -64,7 +64,7 @@ async function main() {
   if (files.length === 0)
     throw new Error(`No PNG assets found in ${assetsDir}`);
 
-  console.info(`Creating grid image from ${files.length} emoji images`)
+  console.info(`Creating grid image from ${files.length} emoji images`);
 
   const grid = pickGrid(files.length);
   const cell = Math.min(

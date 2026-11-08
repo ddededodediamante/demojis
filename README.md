@@ -155,6 +155,24 @@ Returns the emoji names in a category. If the category doesn't exist, it returns
 
 Returns a random emoji name. Pass a category name to pick only from that category. Returns `null` if the category is empty or doesn't exist.
 
+### `getUnicode(name)`
+
+Returns the Unicode emoji that matches a Demojis name, or `null` if there is no equivalent.
+
+```javascript
+demojis.getUnicode("grinning"); // "😀"
+demojis.getUnicode("fishred"); // null
+```
+
+### `getDemoji(unicode)`
+
+Returns the Demojis name that matches a Unicode emoji, or `null` if there is no equivalent. Variation selectors are optional, so `❤` and `❤️` both return `"heartred"`.
+
+```javascript
+demojis.getDemoji("😀"); // "grinning"
+demojis.getDemoji("😃"); // null
+```
+
 ### `getImage(name, size?)`
 
 Returns the URL of an emoji image. The default size is `256` pixels.
@@ -176,4 +194,4 @@ Changes the base URL that `getImage` uses. Trailing slashes are removed automati
 
 ## Unicode equivalents
 
-If you need the Unicode equivalent of each Demojis emoji, see [UNICODE.md](UNICODE.md).
+If you need the Unicode equivalent of each Demojis emoji, see [UNICODE.md](UNICODE.md). The same mapping is available as JSON at `demojis/unicode.json`, or from the API with [`getUnicode`](#getunicodename) and [`getDemoji`](#getdemojiunicode).

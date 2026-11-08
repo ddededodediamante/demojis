@@ -20,7 +20,8 @@
       "browser": "./dist/browser.js",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
-    }
+    },
+    "./unicode.json": "./dist/unicode.json"
   },
   "files": [
     "dist"
@@ -28,8 +29,9 @@
   "scripts": {
     "grid": "node scripts/grid.js",
     "build:data": "node scripts/build.js",
+    "build:unicode": "node scripts/unicode.js",
     "build:code": "tsup",
-    "build": "npm run build:data && npm run build:code",
+    "build": "npm run build:data && npm run build:unicode && npm run build:code",
     "test": "node --test",
     "prepublishOnly": "npm run build"
   },

@@ -1,4 +1,18 @@
 import data from "./data.json";
+import unicodeByName from "./unicode.json";
+
+const VARIATION_SELECTOR = /[\uFE0E\uFE0F]/g;
+
+function normalizeUnicode(value) {
+  return value.replace(VARIATION_SELECTOR, "");
+}
+
+const nameByUnicode = Object.fromEntries(
+  Object.entries(unicodeByName).map(([name, unicode]) => [
+    normalizeUnicode(unicode),
+    name
+  ])
+);
 
 export const all = data.all;
 export const categories = data.categories;
@@ -23,6 +37,15 @@ export function getRandom(category) {
   return list[Math.floor(Math.random() * list.length)];
 }
 
+export function getUnicode(name) {
+  return unicodeByName[name] ?? null;
+}
+
+export function getDemoji(unicode) {
+  if (typeof unicode !== "string") return null;
+  return nameByUnicode[normalizeUnicode(unicode)] ?? null;
+}
+
 export function setBaseUrl(url) {
   _baseUrl = url.replace(/\/$/, "");
 }
@@ -41,6 +64,8 @@ export default {
   getCategories,
   getByCategory,
   getRandom,
+  getUnicode,
+  getDemoji,
   getImage,
   setBaseUrl
 };
