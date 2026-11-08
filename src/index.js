@@ -29,8 +29,13 @@ export function getRandom(category) {
 export function getImage(name, size = 256) {
   const fileName = `${name}.png`;
 
-  return pathToFileURL(path.resolve(__dirname, "images", String(size), fileName)).href;
+  return pathToFileURL(
+    path.resolve(__dirname, "images", String(size), fileName)
+  ).href;
 }
+
+/** Boolean that says if the Demojis package is using the web version. */
+export const isWebVersion = false;
 
 export default {
   all,
@@ -40,4 +45,5 @@ export default {
   getByCategory,
   getRandom,
   getImage,
+  isWebVersion
 };

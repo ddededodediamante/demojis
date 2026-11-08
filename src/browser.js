@@ -31,4 +31,16 @@ export function getImage(name, size = 256) {
   return `${_baseUrl}/${size}/${name}.png`;
 }
 
-export default { all, categories, getAll, getCategories, getByCategory, getRandom, getImage, setBaseUrl };
+/** Boolean that says if the Demojis package is using the web version. */
+export const isWebVersion = true;
+
+export default {
+  all,
+  categories,
+  getAll,
+  getCategories,
+  getByCategory,
+  getRandom,
+  getImage,
+  setBaseUrl
+};

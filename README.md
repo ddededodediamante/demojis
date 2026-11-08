@@ -34,7 +34,7 @@ Showing an emoji takes four steps.
    demojis.getImage("smile", 64);
    ```
 
-4. **Display tjhe emoji:** Use the URL as the `src` of an `<img>`, and set `alt` to the emoji name.
+4. **Display the emoji:** Use the URL as the `src` of an `<img>`, and set `alt` to the emoji name.
 
    ```javascript
    const img = document.createElement("img");
@@ -50,7 +50,7 @@ If you don't want to install anything, point an `<img>` at the CDN. You might wa
 
 ```html
 <img
-  src="https://cdn.jsdelivr.net/npm/demojis@1.1.2/dist/images/64/smile.png"
+  src="https://cdn.jsdelivr.net/npm/demojis@1.1.5/dist/images/64/smile.png"
   alt="smile"
   width="32"
   height="32"
@@ -134,6 +134,10 @@ An object that maps each category name to its list of emoji names.
   ...
 }
 ```
+
+### `demojis.isWebVersion`
+
+A boolean that returns true if the Demojis package used is the web version.
 
 ### `getAll()`
 

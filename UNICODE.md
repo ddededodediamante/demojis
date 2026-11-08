@@ -83,16 +83,16 @@ This is a table of Unicode emojis to Demojis. _List might be uncomplete._
 | 😳      | [flushed](assets/faces/flushed.png)                                 |
 | 🥵      | [hotface](assets/faces/hotface.png)                                 |
 | 🥶      | [coldface](assets/faces/coldface.png)                               |
-| 😱      | No equivalent yet                                                   |
+| 😱      | [shockedfear](assets/faces/shockedfear.png)                         |
 | 🤯      | No equivalent yet                                                   |
 | 🤗      | No equivalent yet                                                   |
 | 🤭      | No equivalent yet                                                   |
 | 🤫      | No equivalent yet                                                   |
-| 🤥      | No equivalent yet                                                   |
+| 🤥      | [lying](assets/faces/lying.png)                                     |
 | 🙄      | No equivalent yet                                                   |
 | 😪      | No equivalent yet                                                   |
 | 😵      | No equivalent yet                                                   |
-| 🥴      | No equivalent yet                                                   |
+| 🥴      | [woozy](assets/faces/woozy.png)                                     |
 | 🤧      | No equivalent yet                                                   |
 | 😷      | No equivalent yet                                                   |
 | 🥱      | No equivalent yet                                                   |

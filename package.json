@@ -26,6 +26,7 @@
     "dist"
   ],
   "scripts": {
+    "grid": "node scripts/grid.js",
     "build:data": "node scripts/build.js",
     "build:code": "tsup",
     "build": "npm run build:data && npm run build:code",
