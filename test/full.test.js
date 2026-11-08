@@ -26,6 +26,8 @@ test("exports exist (ESM)", () => {
   assert.ok(esm.getCategories);
   assert.ok(esm.getByCategory);
   assert.ok(esm.getRandom);
+  assert.ok(esm.getUnicode);
+  assert.ok(esm.getDemoji);
   assert.ok(esm.getImage);
 });
 
@@ -34,6 +36,8 @@ test("exports exist (CJS)", () => {
   assert.ok(cjs.getCategories);
   assert.ok(cjs.getByCategory);
   assert.ok(cjs.getRandom);
+  assert.ok(cjs.getUnicode);
+  assert.ok(cjs.getDemoji);
   assert.ok(cjs.getImage);
 });
 
@@ -91,6 +95,42 @@ test("getRandom(category) works", () => {
   }
 });
 
+test("getUnicode returns the Unicode equivalent", () => {
+  assert.strictEqual(esm.getUnicode("grinning"), "😀");
+  assert.strictEqual(esm.getUnicode("heartred"), "❤️");
+  assert.strictEqual(esm.getUnicode("personmanfacepalming"), "🤦‍♂️");
+});
+
+test("getUnicode returns null when there is no equivalent", () => {
+  assert.strictEqual(esm.getUnicode("fishred"), null);
+  assert.strictEqual(esm.getUnicode("nonexistent"), null);
+});
+
+test("getDemoji returns the Demoji name", () => {
+  assert.strictEqual(esm.getDemoji("😀"), "grinning");
+  assert.strictEqual(esm.getDemoji("❤️"), "heartred");
+  assert.strictEqual(esm.getDemoji("🤦‍♂️"), "personmanfacepalming");
+});
+
+test("getDemoji ignores variation selectors", () => {
+  assert.strictEqual(esm.getDemoji("❤"), "heartred");
+  assert.strictEqual(esm.getDemoji("☺"), "blushrelieved");
+});
+
+test("getDemoji returns null when there is no equivalent", () => {
+  assert.strictEqual(esm.getDemoji("😃"), null);
+  assert.strictEqual(esm.getDemoji("not an emoji"), null);
+  assert.strictEqual(esm.getDemoji(null), null);
+});
+
+test("Unicode mappings are correct", () => {
+  for (const name of esm.getAll()) {
+    const unicode = esm.getUnicode(name);
+    if (!unicode) continue;
+    assert.strictEqual(esm.getDemoji(unicode), name);
+  }
+});
+
 test("getImage returns valid file URLs (ESM)", () => {
   const all = esm.getAll().slice(0, 10);
 
@@ -126,8 +166,15 @@ test("exports exist (browser)", () => {
   assert.ok(browser.getCategories);
   assert.ok(browser.getByCategory);
   assert.ok(browser.getRandom);
+  assert.ok(browser.getUnicode);
+  assert.ok(browser.getDemoji);
   assert.ok(browser.getImage);
   assert.ok(browser.setBaseUrl);
+});
+
+test("browser Unicode functions match ESM", () => {
+  assert.strictEqual(browser.getUnicode("grinning"), esm.getUnicode("grinning"));
+  assert.strictEqual(browser.getDemoji("😀"), esm.getDemoji("😀"));
 });
 
 test("browser data matches ESM data", () => {
